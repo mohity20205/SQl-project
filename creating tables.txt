@@ -1,0 +1,67 @@
+Setting environment for using XAMPP for Windows.
+Mohit Yadav@DESKTOP-BASHGRN c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 22
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database CARSHOWROOM;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use CARSHOWROOM;
+Database changed
+MariaDB [CARSHOWROOM]> create table INVENTORY(stores_name varchar(20),price bigint,model varchar(20),year_of_manufacturing date,fuel_type varchar(10));
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [CARSHOWROOM]> desc INVENTORY;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| stores_name           | varchar(20) | YES  |     | NULL    |       |
+| price                 | bigint(20)  | YES  |     | NULL    |       |
+| model                 | varchar(20) | YES  |     | NULL    |       |
+| year_of_manufacturing | date        | YES  |     | NULL    |       |
+| fuel_type             | varchar(10) | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.014 sec)
+
+MariaDB [CARSHOWROOM]> create table CUSTOMER(stores_customer_id int,name varchar(20),address varchar(20),phone_no bigint,email varchar(20));
+Query OK, 0 rows affected (0.029 sec)
+
+MariaDB [CARSHOWROOM]> desc CUSTOMER;
++--------------------+-------------+------+-----+---------+-------+
+| Field              | Type        | Null | Key | Default | Extra |
++--------------------+-------------+------+-----+---------+-------+
+| stores_customer_id | int(11)     | YES  |     | NULL    |       |
+| name               | varchar(20) | YES  |     | NULL    |       |
+| address            | varchar(20) | YES  |     | NULL    |       |
+| phone_no           | bigint(20)  | YES  |     | NULL    |       |
+| email              | varchar(20) | YES  |     | NULL    |       |
++--------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.015 sec)
+
+MariaDB [CARSHOWROOM]> create table SALE(Invoice_no varchar(25),car_id int,customer_id int,sale_date date,mode_of_payment int,employee_id int,selling_price int);
+Query OK, 0 rows affected (0.049 sec)
+
+MariaDB [CARSHOWROOM]> dsec SALE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'dsec SALE' at line 1
+MariaDB [CARSHOWROOM]> desc SAlE;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| Invoice_no      | varchar(25) | YES  |     | NULL    |       |
+| car_id          | int(11)     | YES  |     | NULL    |       |
+| customer_id     | int(11)     | YES  |     | NULL    |       |
+| sale_date       | date        | YES  |     | NULL    |       |
+| mode_of_payment | int(11)     | YES  |     | NULL    |       |
+| employee_id     | int(11)     | YES  |     | NULL    |       |
+| selling_price   | int(11)     | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+7 rows in set (0.014 sec)
+
+MariaDB [CARSHOWROOM]> create table EMPLOYEE(employee_id int,name varchar(20),date_of_birth date,date_of_joining date,designation varchar(10),salary int);
+Query OK, 0 rows affected (0.031 sec)
